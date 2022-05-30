@@ -1,6 +1,6 @@
-//ì¬Ò		:…Œû
-//ì¬“ú		:2017/08/20
-//ÅIXV“ú	:2017/08/20
+//ä½œæˆè€…		:å¥¥é‡
+//ä½œæˆæ—¥æ™‚		:2017/08/20
+//æœ€çµ‚æ›´æ–°æ—¥	:2017/08/20
 
 #include<iostream>
 #include<ctime>
@@ -11,21 +11,21 @@
 #include<sstream>
 #include<string>
 #include<windows.h>
-#include<vector>					//ƒƒ‚ƒŠŠÇ——p
+#include<vector>					//ãƒ¡ãƒ¢ãƒªç®¡ç†ç”¨
 
 #include<direct.h>
 
-#define _USE_MATH_DEFINES			//#include <math.h>‚Ìã‚É‹Lq
+#define _USE_MATH_DEFINES			//#include <math.h>ã®ä¸Šã«è¨˜è¿°
 #include <math.h>
 #include "mt19937ar.h"
 
-using namespace std;				//—vŒŸ“¢
+using namespace std;				//è¦æ¤œè¨
 
 #include "main.h"
 #include "make_xy_data.h"
 
 /**********************************************************************/
-// @ make_xy_data()   ˆÚ“®æƒf[ƒ^o—Í
+// @ make_xy_data()   ç§»å‹•å…ˆãƒ‡ãƒ¼ã‚¿å‡ºåŠ›
 /**********************************************************************/
 void make_xy_data(UINT8 buf_diffusion)
 {
@@ -38,30 +38,30 @@ void make_xy_data(UINT8 buf_diffusion)
 	char buf_name_y[30];
 
 	try {
-		xdata.resize(ACCUR, vector<SINT16>(ACCUR, 0));		//ƒƒ‚ƒŠŠm•Û
-		ydata.resize(ACCUR, vector<SINT16>(ACCUR, 0));		//ƒƒ‚ƒŠŠm•Û
+		xdata.resize(ACCUR, vector<SINT16>(ACCUR, 0));		//ãƒ¡ãƒ¢ãƒªç¢ºä¿
+		ydata.resize(ACCUR, vector<SINT16>(ACCUR, 0));		//ãƒ¡ãƒ¢ãƒªç¢ºä¿
 	}
 	catch (...) {
-		//ƒGƒ‰[ˆ—
-		cout << "ƒƒ‚ƒŠ•s‘«‚Å‚·B" << endl;
+		//ã‚¨ãƒ©ãƒ¼å‡¦ç†
+		cout << "ãƒ¡ãƒ¢ãƒªä¸è¶³ã§ã™ã€‚" << endl;
 		exit(0);
 	}
 
-	_mkdir(Fo_CASH);										//cashƒtƒHƒ‹ƒ_ì¬
+	_mkdir(Fo_CASH);										//cashãƒ•ã‚©ãƒ«ãƒ€ä½œæˆ
 	sprintf_s(buf_name_x, "%s/%d_%d_x.txt", Fo_CASH, ACCUR, buf_diffusion);
 	sprintf_s(buf_name_y, "%s/%d_%d_y.txt", Fo_CASH, ACCUR, buf_diffusion);
 
-	ifstream ifs(buf_name_x);								//dataƒtƒ@ƒCƒ‹“Ç‚İ‚İ
+	ifstream ifs(buf_name_x);								//dataãƒ•ã‚¡ã‚¤ãƒ«èª­ã¿è¾¼ã¿
 	if (ifs.fail()) {
 		ifs.close();
-		cout << "CASHƒtƒ@ƒCƒ‹‚ª‘¶İ‚µ‚Ü‚¹‚ñ" << endl;
-		cout << "CASHƒtƒ@ƒCƒ‹‚ğì¬‚µ‚Ü‚·" << endl;
+		cout << "CASHãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã—ã¾ã›ã‚“" << endl;
+		cout << "CASHãƒ•ã‚¡ã‚¤ãƒ«ã‚’ä½œæˆã—ã¾ã™" << endl;
 
 
 		for (i = 0; i < ACCUR; i++) {
 			for (j = 0; j < ACCUR; j++) {
-				buf_x = buf_diffusion * sqrt(-2 * log(1.0 - i / (ACCUR*1.0 + 1))) * cos(2 * M_PI * (1.0 - j / (ACCUR*1.0 + 1)));	//1.0‚ğ‚©‚¯‚Ä‚¢‚é‚Ì‚ÍŒ^•ÏŠ·‚Ì‚½‚ß
-				buf_y = buf_diffusion * sqrt(-2 * log(1.0 - i / (ACCUR*1.0 + 1))) * sin(2 * M_PI * (1.0 - j / (ACCUR*1.0 + 1)));	//1.0‚ğ‚©‚¯‚Ä‚¢‚é‚Ì‚ÍŒ^•ÏŠ·‚Ì‚½‚ß
+				buf_x = buf_diffusion * sqrt(-2 * log(1.0 - i / (ACCUR*1.0 + 1))) * cos(2 * M_PI * (1.0 - j / (ACCUR*1.0 + 1)));	//1.0ã‚’ã‹ã‘ã¦ã„ã‚‹ã®ã¯å‹å¤‰æ›ã®ãŸã‚
+				buf_y = buf_diffusion * sqrt(-2 * log(1.0 - i / (ACCUR*1.0 + 1))) * sin(2 * M_PI * (1.0 - j / (ACCUR*1.0 + 1)));	//1.0ã‚’ã‹ã‘ã¦ã„ã‚‹ã®ã¯å‹å¤‰æ›ã®ãŸã‚
 
 
 				if (buf_x >= 0) {
@@ -78,9 +78,9 @@ void make_xy_data(UINT8 buf_diffusion)
 			}
 		}
 
-		//ƒtƒ@ƒCƒ‹ì¬
+		//ãƒ•ã‚¡ã‚¤ãƒ«ä½œæˆ
 		ofstream ofs;
-		ofs.open(buf_name_x, ios::out);								//ƒtƒ@ƒCƒ‹‚ğ‘‚«‚¾‚·êŠw’è
+		ofs.open(buf_name_x, ios::out);								//ãƒ•ã‚¡ã‚¤ãƒ«ã‚’æ›¸ãã ã™å ´æ‰€æŒ‡å®š
 		for (i = 0; i < ACCUR; i++) {
 			for (j = 0; j < ACCUR; j++) {
 				ofs << xdata[i][j] << ",";
@@ -88,7 +88,7 @@ void make_xy_data(UINT8 buf_diffusion)
 		}
 		ofs.close();
 
-		ofs.open(buf_name_y, ios::out);								//ƒtƒ@ƒCƒ‹‚ğ‘‚«‚¾‚·êŠw’è
+		ofs.open(buf_name_y, ios::out);								//ãƒ•ã‚¡ã‚¤ãƒ«ã‚’æ›¸ãã ã™å ´æ‰€æŒ‡å®š
 		for (i = 0; i < ACCUR; i++) {
 			for (j = 0; j < ACCUR; j++) {
 				ofs << ydata[i][j];
