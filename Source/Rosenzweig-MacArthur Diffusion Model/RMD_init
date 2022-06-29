@@ -1,0 +1,12 @@
+function x0 = default
+
+global Size
+
+x0 = zeros(2,Size+1,Size+1);
+
+for i=1:Size+1
+    for j=1:Size+1
+        x0(1,i,j) = 1 + sin(pi.*i/Size).*sin(-pi*j/Size);
+        x0(2,i,j) =(1+sin(pi.*i/Size).*sin(pi*j/Size));
+    end
+end
