@@ -279,8 +279,8 @@ public class Puzzle : MonoBehaviour
             }
 
             
-            if(true)   // バグチェック
-            //if (ClearFlag)
+            // if(true)   // バグチェック
+            if (ClearFlag)
             {
                 for (int i = 0; i < Amount_Panels - 1; ++i)   // 3×3のパズルなら表示したいのは1～8なので-1して9を非表示のままにする
                 {
