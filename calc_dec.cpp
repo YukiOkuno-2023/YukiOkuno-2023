@@ -1,5 +1,5 @@
-// ä½œæˆè€…		:å¥¥é‡
-// ä½œæˆæ—¥æ™‚		:2018/08/20
+// ì¬Ò		:‰œ–ì
+// ì¬“ú		:2018/08/20
 
 #include<iostream>
 #include<ctime>
@@ -10,11 +10,11 @@
 #include<sstream>
 #include<string>
 #include<windows.h>
-#include<vector>					// ãƒ¡ãƒ¢ãƒªç®¡ç†ç”¨
+#include<vector>					// ƒƒ‚ƒŠŠÇ——p
 
 #include<direct.h>
 
-#define _USE_MATH_DEFINES			// #include <math.h>ã®ä¸Šã«è¨˜è¿°
+#define _USE_MATH_DEFINES			// #include <math.h>‚Ìã‚É‹Lq
 #include <math.h>
 #include "mt19937ar.h"
 
@@ -25,58 +25,58 @@ using namespace std;
 #include "test_debug.h"
 
 
-// æ¸›ç®—å‡¦ç†
+// Œ¸Zˆ—
 int calc_dec(int i,int *now_x,int *now_y)
 {
-	// å¯¾è±¡Cellæ±ºå®š
+	// ‘ÎÛCellŒˆ’è
 	*now_x = array_t[i] % cf.size;
 	*now_y = array_t[i] / cf.size;
 
 	if (cell_data[*now_x][*now_y].type == 0) {
-		// å¯¾è±¡Cellå€‹ä½“ç„¡ã—
+		// ‘ÎÛCellŒÂ‘Ì–³‚µ
 		// Do Nothing
 	} 
 	else if (cell_data[*now_x][*now_y].f_act != 0) {
-		// å¯¾è±¡Cellå€‹ä½“ç§»å‹•æ¸ˆã¿
+		// ‘ÎÛCellŒÂ‘ÌˆÚ“®Ï‚İ
 		// Do Nothing
 	}
 	
 	else {
-		// å¯¾è±¡Cellå€‹ä½“ã‚ã‚Š
+		// ‘ÎÛCellŒÂ‘Ì‚ ‚è
 
-		// æ®‹å¯¿å‘½çµŒéå‡¦ç†
+		// cõ–½Œo‰ßˆ—
 		if (type_data[cell_data[*now_x][*now_y].type - 1].target != 0) {
-			// æ•é£Ÿå¯¾è±¡ã‚ã‚ŠTypeã¯æ®‹å¯¿å‘½çµŒéã«ã‚ˆã‚‹æ¶ˆæ»…ã¯ç„¡ã—
+			// •ßH‘ÎÛ‚ ‚èType‚Ícõ–½Œo‰ß‚É‚æ‚éÁ–Å‚Í–³‚µ
 			// Do Nothing
 		}
 		else {
-			// æ•é£Ÿå¯¾è±¡ç„¡ã—Type
-			cell_data[*now_x][*now_y].r_life = cell_data[*now_x][*now_y].r_life - 1;			// å¯¿å‘½æ¸›ç®—
+			// •ßH‘ÎÛ–³‚µType
+			cell_data[*now_x][*now_y].r_life = cell_data[*now_x][*now_y].r_life - 1;			// õ–½Œ¸Z
 			if (cell_data[*now_x][*now_y].r_life == 0) {
-				cell_data[*now_x][*now_y] = delete_cell;								// æ®‹å¯¿å‘½ãŒ0ãªã‚‰å‰Šé™¤
+				cell_data[*now_x][*now_y] = delete_cell;								// cõ–½‚ª0‚È‚çíœ
 			}
 		}
 
-		// æ®‹æ¶ˆæ»…æ™‚é–“çµŒéå‡¦ç†
-		if (cell_data[*now_x][*now_y].type != 0 && type_data[cell_data[*now_x][*now_y].type - 1].target != 0) { // å¥¥é‡ 9/26ãƒ‡ãƒªãƒ¼ãƒˆã•ã‚Œã¦ãªã„ã‹ã©ã†ã‹è¿½åŠ 
-			// æ•é£Ÿå¯¾è±¡ã‚ã‚ŠTYPE
-			cell_data[*now_x][*now_y].r_vanish = cell_data[*now_x][*now_y].r_vanish - 1;	// é£¢é¤“æ™‚é–“æ¸›ç®—
+		// cÁ–ÅŠÔŒo‰ßˆ—
+		if (cell_data[*now_x][*now_y].type != 0 && type_data[cell_data[*now_x][*now_y].type - 1].target != 0) { // ‰œ–ì 9/26ƒfƒŠ[ƒg‚³‚ê‚Ä‚È‚¢‚©‚Ç‚¤‚©’Ç‰Á
+			// •ßH‘ÎÛ‚ ‚èTYPE
+			cell_data[*now_x][*now_y].r_vanish = cell_data[*now_x][*now_y].r_vanish - 1;	// ‹Q‰ìŠÔŒ¸Z
 			if (cell_data[*now_x][*now_y].r_vanish == 0) {
-				cell_data[*now_x][*now_y] = delete_cell;							// é£¢é¤“æ™‚é–“0ã§å‰Šé™¤
+				cell_data[*now_x][*now_y] = delete_cell;							// ‹Q‰ìŠÔ0‚Åíœ
 			}
 		}
 		else {
-			// æ•é£Ÿå¯¾è±¡ç„¡ã—Typeã¯æ®‹æ¶ˆæ»…æ™‚é–“ã«ã‚ˆã‚‹æ¶ˆæ»…ã¯ç„¡ã—
+			// •ßH‘ÎÛ–³‚µType‚ÍcÁ–ÅŠÔ‚É‚æ‚éÁ–Å‚Í–³‚µ
 			// Do Nothing
 		}
 
-		// å¢—æ®–æ™‚é–“å‡¦ç†
-		if (cell_data[*now_x][*now_y].type != 0 && cell_data[*now_x][*now_y].r_breed != 0) { // å¥¥é‡9/26 ãƒ‡ãƒªãƒ¼ãƒˆã•ã‚Œã¦ãªã„ã‹ã©ã†ã‹è¿½åŠ 
-			cell_data[*now_x][*now_y].r_breed = cell_data[*now_x][*now_y].r_breed - 1;		// å¢—æ®–æ™‚é–“-1
+		// ‘BŠÔˆ—
+		if (cell_data[*now_x][*now_y].type != 0 && cell_data[*now_x][*now_y].r_breed != 0) { // ‰œ–ì9/26 ƒfƒŠ[ƒg‚³‚ê‚Ä‚È‚¢‚©‚Ç‚¤‚©’Ç‰Á
+			cell_data[*now_x][*now_y].r_breed = cell_data[*now_x][*now_y].r_breed - 1;		// ‘BŠÔ-1
 		}
 
 		if (cell_data[*now_x][*now_y].type != 0) {
-			cell_data[*now_x][*now_y].r_react = cell_data[*now_x][*now_y].r_react - 1; // å¥¥é‡9/26 æ•é£Ÿå¯¾è±¡ã‚ã‚ŠTypeã®ã¿æ®‹åå¿œæ™‚é–“ã‚’ã¸ã‚‰ã™
+			cell_data[*now_x][*now_y].r_react = cell_data[*now_x][*now_y].r_react - 1; // ‰œ–ì9/26 •ßH‘ÎÛ‚ ‚èType‚Ì‚İc”½‰ŠÔ‚ğ‚Ö‚ç‚·
 		}
 
 	}
