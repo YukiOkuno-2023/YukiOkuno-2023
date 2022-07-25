@@ -9,4 +9,6 @@ S-IBMの計算を行う**アプリケーションを出力**するプログラ�
 
 
 出力例1、2の動画ファイルは計算結果の一例です。
+<br><br>
 
+<img src="https://github.com/YukiOkuno-2023/YukiOkuno-2023/blob/main/Picture/%E5%87%BA%E5%8A%9B%E7%B5%90%E6%9E%9C1.PNG" width="240px">
