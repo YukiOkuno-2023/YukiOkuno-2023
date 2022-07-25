@@ -3,6 +3,8 @@ S-IBMは領域を定義して領域そのものにパラメーターを持たせ
 
 異なる手法同士の数理モデルを比較し合うことで**相互のモデルの高度化**を目指すことが可能になります。<br>
 
+<img src="https://raw.githubusercontent.com/YukiOkuno-2023/YukiOkuno-2023/main/Picture/%E5%87%BA%E5%8A%9B%E7%B5%90%E6%9E%9C2.PNG" width="200px">
+
 
 ## RMD_main.m
 領域の定義などを行っています。
