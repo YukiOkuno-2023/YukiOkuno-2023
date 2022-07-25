@@ -10,4 +10,3 @@ S-IBMの計算を行う**アプリケーションを出力**するプログラ�
 
 出力例1、2の動画ファイルは計算結果の一例です。
 
-https://drive.google.com/file/d/1u6dBvXcrKrv9224aaLEqM81gU9mSFJlS/view?usp=sharing
