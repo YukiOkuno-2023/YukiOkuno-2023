@@ -3,8 +3,9 @@
 ## Animation
 作成した3Dのアニメーションのファイルをまとめたフォルダです。
 
-## 3Dモデル.PNG、.fbx
-作成した3Dモデルの写真です。
+## 3Dモデル.fbx
+3Dモデルのメッシュデータです。
+<imgsrc="https://raw.githubusercontent.com/YukiOkuno-2023/YukiOkuno-2023/main/Picture/3D%E3%83%A2%E3%83%87%E3%83%AB.png" width="200px">
 
 ## character_controller.cs
 キャラクターの挙動に関するプログラムです。
