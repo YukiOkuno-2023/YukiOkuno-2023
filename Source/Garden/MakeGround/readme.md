@@ -1,4 +1,6 @@
 国交省のラスターデータから地形データを復元している様子です。
 <br>
 
-<img src="https://raw.githubusercontent.com/YukiOkuno-2023/YukiOkuno-2023/main/Picture/makeground1.gif" width="400px">
+<img src="https://raw.githubusercontent.com/YukiOkuno-2023/YukiOkuno-2023/main/Picture/makeground1.gif" width="600px">
+<br>
+<img src="https://github.com/YukiOkuno-2023/YukiOkuno-2023/blob/main/Picture/makeground2.gif" width="600px">
